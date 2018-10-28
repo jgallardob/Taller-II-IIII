@@ -13,9 +13,11 @@ class Diputado(Listado):
         soup = BS(data, 'xml')
 
         diputados = soup.find_all("Diputado")
-        
-        parl = []
 
+        if not diputados:
+            return ['Lista vacia']
+
+        parl = []
         for diputado in diputados:
             Id =  diputado.Id.text.encode('utf-8')
             nombre = diputado.Nombre.text.encode('utf-8')
