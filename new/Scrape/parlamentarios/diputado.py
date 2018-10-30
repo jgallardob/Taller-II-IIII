@@ -22,7 +22,7 @@ class Diputado(Listado):
 
         parl = []
         for diputado in diputados:
-            Id =  diputado.Id.text.encode('utf-8')
+            Id = diputado.Id.text.encode('utf-8')
             nombre = diputado.Nombre.text.encode('utf-8')
             AP = diputado.ApellidoPaterno.text.encode('utf-8')
             AM = diputado.ApellidoMaterno.text.encode('utf-8')
