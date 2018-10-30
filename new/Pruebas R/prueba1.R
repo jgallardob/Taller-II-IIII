@@ -4,6 +4,7 @@ library(RJSONIO)
 rm(list = ls(all = TRUE))  #Limpia los datos que se encuentra en la memoria
 UN<- read.csv("source.csv", header = FALSE, strip.white = TRUE) #Lee el archivo csv
 data(UN) #importa datos que se leyeron
+
 dataUN <- as.matrix(UN) #Ingresa datos deto de un matriz
 UN[1:5, 1:6]   #Muestrame las filas del 1 al 5 y columnas del 1 al 6
 UNames <- UN[, 1]  #Muestrame la columna Nombres
