@@ -1,5 +1,8 @@
+import os
+import sys
+sys.path.insert(0, os.path.realpath('../'))
 
-from Scrape.listado import Listado
+from listado import Listado
 
 from bs4 import BeautifulSoup as BS
 import requests
@@ -19,10 +22,11 @@ class Diputado(Listado):
 
         parl = []
         for diputado in diputados:
-            Id =  diputado.Id.text.encode('utf-8')
+            Id = diputado.Id.text.encode('utf-8')
             nombre = diputado.Nombre.text.encode('utf-8')
             AP = diputado.ApellidoPaterno.text.encode('utf-8')
             AM = diputado.ApellidoMaterno.text.encode('utf-8')
             sexo = diputado.Sexo.text.encode('utf-8')
-            parl.append(toObject(Id, nombre, AP, AM, sexo))
+            parl.append(cls.toObject(Id, nombre, AP, AM, sexo))
         return parl
+
