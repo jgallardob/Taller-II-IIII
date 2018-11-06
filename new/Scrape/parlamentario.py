@@ -5,7 +5,7 @@ class Parlamentario(object):
     Clase que se encarga de abstraer la informacion de los parlamentarios
     scrappeados
     """
-    def __init__(self, Id, nombre, AP, AM, sexo):
+    def __init__(self, Id, nombre, AP, AM, sexo, partido):
         """
         Constructor de la clase Parlamentario
         :param Id    : Id del parlamentario
@@ -19,3 +19,4 @@ class Parlamentario(object):
         self.AP = AP
         self.AM = AM
         self.sexo = sexo
+        self.partido = partido

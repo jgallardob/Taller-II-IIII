@@ -12,10 +12,10 @@ class Listado(object):
                                   'la subclase')
 
     @classmethod
-    def toObject(cls, Id, nombre, AP, AM, sexo):
+    def toObject(cls, Id, nombre, AP, AM, sexo, partido):
         """
         Metodo compartido(sirve para todo tipo de parlamentario) en el cual
         se convierte el metadata en un objeto
         """
-        p = Parlamentario(Id, nombre, AP, AM, sexo)
+        p = Parlamentario(Id, nombre, AP, AM, sexo, partido)
         return p

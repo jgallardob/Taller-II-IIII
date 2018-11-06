@@ -27,6 +27,10 @@ class Diputado(Listado):
             AP = diputado.ApellidoPaterno.text.encode('utf-8')
             AM = diputado.ApellidoMaterno.text.encode('utf-8')
             sexo = diputado.Sexo.text.encode('utf-8')
-            parl.append(cls.toObject(Id, nombre, AP, AM, sexo))
+            try:
+                partido = diputado.Militancias.Militancia.Partido.Alias.text.encode('utf-8')
+            except:
+                partido = 'Null'
+                pass
+            parl.append(cls.toObject(Id, nombre, AP, AM, sexo, partido))
         return parl
-

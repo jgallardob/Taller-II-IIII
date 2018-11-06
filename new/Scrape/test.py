@@ -2,5 +2,5 @@
 
 from parlamentarios import Diputado
 
-for diputados in Diputado.getParlamentarios():
-    print diputados #Cambiar por subir a DB
+#for diputados in Diputado.getParlamentarios():
+#    print diputados.partido #Cambiar por subir a DB
