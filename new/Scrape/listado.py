@@ -1,6 +1,7 @@
 
 from parlamentario import Parlamentario
 
+
 class Listado(object):
     @classmethod
     def getParlamentarios(cls):
@@ -12,10 +13,10 @@ class Listado(object):
                                   'la subclase')
 
     @classmethod
-    def toObject(cls, Id, nombre, AP, AM, sexo, partido):
+    def toObject(cls, Id, nombre, apellido_paterno, imagen, region, distrito, partido):
         """
         Metodo compartido(sirve para todo tipo de parlamentario) en el cual
         se convierte el metadata en un objeto
         """
-        p = Parlamentario(Id, nombre, AP, AM, sexo, partido)
+        p = Parlamentario(Id, nombre, apellido_paterno, imagen, region, distrito, partido)
         return p
