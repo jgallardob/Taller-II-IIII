@@ -8,8 +8,6 @@ client = MongoClient('localhost', 27017)
 db = client.integracion
 #----Obtencion de datos diputado como objeto---->
 for i in Votaciones.get_Votaciones():
-    print i.__dict__  # cambiar a base de datos claudio 
-    				  #	(para modificar cantidad de votaciones ir a votaciones.py
-    				  #  y cambiar el rango en la linea 23 OJO!) 	
-
+    #print i.__dict__  	
+    db.votacion.insert(i.__dict__)
 client.close()

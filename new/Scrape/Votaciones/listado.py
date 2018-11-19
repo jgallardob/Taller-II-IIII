@@ -9,7 +9,7 @@ class Listado(object):
                                   'la subclase')
 
     @classmethod
-    def toObject(cls, _id, Id_Diputado, voto):
+    def toObject(cls, Id, Id_Diputado, voto):
 
-        v = Votacion(_id, Id_Diputado, voto)
+        v = Votacion(Id, Id_Diputado, voto)
         return v

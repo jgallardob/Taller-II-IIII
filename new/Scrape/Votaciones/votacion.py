@@ -4,7 +4,7 @@ import requests
 
 
 class Votacion(object):
-    def __init__(self, _id, Id_Diputado, voto):
-        self._id = _id
+    def __init__(self, Id, Id_Diputado, voto):
+        self.Id = Id
         self.Id_Diputado = Id_Diputado
         self.voto = voto

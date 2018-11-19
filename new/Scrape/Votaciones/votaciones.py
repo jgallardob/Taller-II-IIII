@@ -36,10 +36,10 @@ class Votaciones(Listado):
 
         for i in range(0, len(ids_votacion[0:3])): # (manejar cantidad de votaciones, linea 24 debe tener mislo largo)
             for j in range(0, len(aId_Diputados)):  
-                _id = ids_votacion[i]
+                Id = ids_votacion[i]
                 Id_Diputado = aId_Diputados[j]
                 voto = aVotos[j]
 
-                votaciones.append(cls.toObject(_id, Id_Diputado, voto))
+                votaciones.append(cls.toObject(Id, Id_Diputado, voto))
 
         return votaciones
