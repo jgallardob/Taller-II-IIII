@@ -64,7 +64,7 @@ class Diputado(Listado):
         parl = []
 
         for i in range(0, len(info)):
-            Id = DiputadosId[i]
+            _id = DiputadosId[i]
             nombre = nombres[i]
             apellido_paterno = apellidos[i]
             print imagenes[i]
@@ -73,5 +73,5 @@ class Diputado(Listado):
             distrito = info[i].find("ul").text.split()[3]
             partido = info[i].find("ul").text.split()[5]
 
-            parl.append(cls.toObject(Id, nombre, apellido_paterno, imagen, region, distrito, partido))
+            parl.append(cls.toObject(_id, nombre, apellido_paterno, imagen, region, distrito, partido))
         return parl

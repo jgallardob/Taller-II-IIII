@@ -8,7 +8,7 @@ class Listado(object):
                                   'la subclase')
 
     @classmethod
-    def toObject(cls, Id, numero, fecha_inicio, fecha_termino):
+    def toObject(cls, _id, numero, fecha_inicio, fecha_termino):
 
-        s = Sesion(Id, numero, fecha_inicio, fecha_termino)
+        s = Sesion(_id, numero, fecha_inicio, fecha_termino)
         return s

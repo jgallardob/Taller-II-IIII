@@ -19,22 +19,27 @@ class Votaciones(Listado):
 
         aId_Diputados = []
         aVotos = []
+        aId_votaciones = []
 
-        for i in ids_votacion[0:3]:  # (manejar cantidad de votaciones)
+        for i in ids_votacion[0:3]:  # (manejar cantidad de votaciones, linea 38 debe tener mislo largo)
             Url_VotaDetalle = "http://opendata.camara.cl/camaradiputados/WServices/WSLegislativo.asmx/retornarVotacionDetalle?prmVotacionId=" + str(i)
             r = requests.get(Url_VotaDetalle)
             data = r.text
             soup = BS(data, 'xml')
-            result = soup.find_all("Voto")
-            for i in result:
-                aId_Diputados.append(i.Id.text.encode('utf-8'))
-                aVotos.append(i.OpcionVoto["Valor"].encode('utf-8'))
+
+            result2 = soup.find_all("Voto")
+            for i in result2:
+                aId_Diputados.append(i.Id.text)
+                aVotos.append(i.OpcionVoto["Valor"])
 
         votaciones = []
 
-        for i in range(0, len(aId_Diputados)):
-            Id_Diputado = aId_Diputados[i]
-            voto = aVotos[i]
+        for i in range(0, len(ids_votacion[0:3])): # (manejar cantidad de votaciones, linea 24 debe tener mislo largo)
+            for j in range(0, len(aId_Diputados)):  
+                _id = ids_votacion[i]
+                Id_Diputado = aId_Diputados[j]
+                voto = aVotos[j]
 
-            votaciones.append(cls.toObject(Id_Diputado, voto))
+                votaciones.append(cls.toObject(_id, Id_Diputado, voto))
+
         return votaciones

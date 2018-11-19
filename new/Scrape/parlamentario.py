@@ -6,7 +6,7 @@ class Parlamentario(object):
     scrappeados
     """
 
-    def __init__(self, Id, nombre, apellido_paterno, imagen, region, distrito, partido):
+    def __init__(self, _id, nombre, apellido_paterno, imagen, region, distrito, partido):
         """
         Constructor de la clase Parlamentario
         :param nombre: Nombre del parlamentario
@@ -14,7 +14,7 @@ class Parlamentario(object):
         :param sexo  : Sexo
         """
 
-        self.Id = Id
+        self._id = _id
         self.nombre = nombre
         self.apellido_paterno = apellido_paterno
         self.imagen = imagen

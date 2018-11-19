@@ -15,9 +15,9 @@ class Sesiones(Listado):
         soup = BS(data, 'xml')
         result = soup.find_all("Sesion")
         for i in result:
-            Id = i.Id.text.encode('utf-8')
+            _id = i.Id.text.encode('utf-8')
             numero = i.Numero.text.encode('utf-8')
             FechaInicio = i.FechaInicio.text.encode('utf-8')
             FechaTermino = i.FechaTermino.text.encode('utf-8')
-            sesiones.append(cls.toObject(Id, numero, FechaInicio, FechaTermino))
+            sesiones.append(cls.toObject(_id, numero, FechaInicio, FechaTermino))
         return sesiones
