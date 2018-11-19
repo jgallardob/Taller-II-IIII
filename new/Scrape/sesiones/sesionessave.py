@@ -8,6 +8,6 @@ client = MongoClient('localhost', 27017)
 db = client.integracion
 #----Obtencion de datos diputado como objeto---->
 for i in Sesiones.get_Sesiones():
-    print i.__dict__  # cambiar a base de datos claudio
-
+    #print i.__dict__  
+    db.sesion.insert(i.__dict__)
 client.close()
