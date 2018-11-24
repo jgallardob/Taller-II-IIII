@@ -30,14 +30,20 @@ class Votaciones(Listado):
             result2 = soup.find_all("Voto")
             for i in result2:
                 aId_Diputados.append(i.Id.text)
-                aVotos.append(i.OpcionVoto["Valor"])
+                # aVotos.append(i.OpcionVoto["Valor"])
+                if i.OpcionVoto["Valor"] == "0":
+                    aVotos.append("4")
+                if i.OpcionVoto["Valor"] == "1":
+                    aVotos.append("1")
+                if i.OpcionVoto["Valor"] == "2":
+                    aVotos.append("7")
 
         votaciones = []
 
-        for i in range(0, len(ids_votacion[0:3])): # (manejar cantidad de votaciones, linea 24 debe tener mislo largo)
-            for j in range(0, len(aId_Diputados)):  
+        for i in range(0, len(ids_votacion[0:3])):  # (manejar cantidad de votaciones, linea 24 debe tener mislo largo)
+            for j in range(0, len(aId_Diputados)):
                 Id = ids_votacion[i]
-                Id_Diputado = aId_Diputados[j]
+                Id_Diputado = str(aId_Diputados[j])
                 voto = aVotos[j]
 
                 votaciones.append(cls.toObject(Id, Id_Diputado, voto))
