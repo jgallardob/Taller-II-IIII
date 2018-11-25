@@ -10,7 +10,7 @@ client = MongoClient('localhost', 27017)
 db = client.integracion
 #----Obtencion de datos diputado como objeto---->
 for i in Votacion.get_Votaciones():
-    print i.__dict__
+    #print i.__dict__
     db.votacion.insert(i.__dict__)
 print "Proyectos descargadas y guardadas en MongoDB(:"
 

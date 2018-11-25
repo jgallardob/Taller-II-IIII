@@ -36,7 +36,7 @@ class Votacion(Listado):
                     aVotos.append("7")
 
             Id = str(ids)
-            for i in range(0, len(aId_Diputados)):
+            for i in range(0, len(aVotos)):
                 Id_Diputado = str(aId_Diputados[i])
                 voto = str(aVotos[i])
 
