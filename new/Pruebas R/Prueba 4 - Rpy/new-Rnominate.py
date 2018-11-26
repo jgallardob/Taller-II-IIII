@@ -21,7 +21,7 @@ partidos = r['matrix'](votaciones.rx(True,3))
 rc = r.rollcall(votaciones2, yea = [1,2,3], nay = [4,5,6],
                 missing = [7,8,9], notInLegis = 0,)
 print rc
-result = wnom.wnominate(rc,polarity=robjects.IntVector((1,5)),minvotes = 1)
+result = wnom.wnominate(rc,polarity=robjects.IntVector((1,5)),minvotes = 10)
 #print result
 sum =r.summary(result)
 par=r.par(mfrow = [1,1])
