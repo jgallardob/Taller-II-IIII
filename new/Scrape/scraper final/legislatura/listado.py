@@ -1,9 +1,9 @@
-from legislatura import Legislatura
+from objLegislatura import Legislatura
 
 
 class Listado(object):
     @classmethod
-    def getLegislatura(cls):
+    def getLegislaturas(cls):
         raise NotImplementedError('Se debe de implementar dentro de'
                                   'la subclase')
 

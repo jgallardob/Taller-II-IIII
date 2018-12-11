@@ -2,6 +2,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.realpath('../'))
+
 from bs4 import BeautifulSoup as BS
 import requests
 from listado import Listado
@@ -9,10 +10,9 @@ from sesiones.sesiones import Sesiones
 import re
 
 
-class Boletin(Listado):
+class Boletines(Listado):
     @classmethod
-    def get_Boletines(cls):
-        print "Descargando Boletines...espere"
+    def getBoletines(cls):
         sesiones = []
         boletines = []
         array = []

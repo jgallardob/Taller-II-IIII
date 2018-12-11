@@ -3,13 +3,13 @@
 import pymongo
 from pymongo import MongoClient
 from pprint import pprint
-from boletines import Boletin
+from boletines import Boletines
 
 client = MongoClient('localhost', 27017)
 db = client.integracion
 #----Obtencion de datos diputado como objeto---->
 
-for i in Boletin.get_Boletines():
+for i in Boletines.getBoletines():
     print i.__dict__
     db.boletin.insert(i.__dict__)
 print "Boletines descargadas y guardadas en MongoDB (:"

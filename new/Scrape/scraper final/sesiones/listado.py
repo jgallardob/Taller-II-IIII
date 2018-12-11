@@ -1,9 +1,9 @@
-from sesion import Sesion
+from objSesion import Sesion
 
 
 class Listado(object):
     @classmethod
-    def getParlamentarios(cls):
+    def getSesiones(cls):
         raise NotImplementedError('Se debe de implementar dentro de'
                                   'la subclase')
 

@@ -5,13 +5,12 @@ sys.path.insert(0, os.path.realpath('../'))
 from bs4 import BeautifulSoup as BS
 import requests
 from listado import Listado
-from Proyecto.proyectos import Proyecto
+from Proyecto.proyectos import Proyectos
 
 
-class Votacion(Listado):
+class Votaciones(Listado):
     @classmethod
-    def get_Votaciones(cls):
-        print "Descargando Votaciones... espere"
+    def getVotaciones(cls):
         votaciones = []
         for p in Proyecto.get_Proyectos():
             votaciones.append(p.id_votacion)

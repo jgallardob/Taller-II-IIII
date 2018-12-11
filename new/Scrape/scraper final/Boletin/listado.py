@@ -1,10 +1,10 @@
 
-from boletin import Boletin
+from objBoletin import Boletin
 
 
 class Listado(object):
     @classmethod
-    def getParlamentarios(cls):
+    def getBoletines(cls):
         raise NotImplementedError('Se debe de implementar dentro de'
                                   'la subclase')
 

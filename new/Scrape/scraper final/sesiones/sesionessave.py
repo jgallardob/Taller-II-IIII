@@ -7,7 +7,7 @@ from sesiones import Sesiones
 client = MongoClient('localhost', 27017)
 db = client.integracion
 #----Obtencion de datos diputado como objeto---->
-for i in Sesiones.get_Sesiones():
+for i in Sesiones.getSesiones():
     print i.__dict__
     db.sesion.insert(i.__dict__)
 print "Sesiones descargadas y guardadas en MongoDB (:"

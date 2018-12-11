@@ -9,8 +9,7 @@ from legislatura.legislaturas import Legislatura
 
 class Sesiones(Listado):
     @classmethod
-    def get_Sesiones(cls):
-        print "Descargando Sesiones...espere"
+    def getSesiones(cls):
         legislaturas = []
 
         legislaturas.append(Legislatura.get_Legislaturas()[-1]._id)  # Ultima legislatura(50)(con un for obetenemos todas)
