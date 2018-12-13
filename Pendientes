@@ -1,0 +1,8 @@
+ Pendientes backend:
+
+
+* Profundización expresiones regulares y obtener gráfico a partir de topicos específicos (área, comisiones, y como tentativa filtrar a partir de proyectos presentados por parlamentarios)
+* Api para automatizar procesos de consultas/consumo de datos 
+* optimización de estructura creada este año, implementación de parámetros para actividades especificas
+* base de datos relacional para manejar temas de perfiles (punto 1) en relación a la nueva presentación de voteview
+* Migrar a la nueva metrología el Senado
