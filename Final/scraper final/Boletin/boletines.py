@@ -18,7 +18,6 @@ class Boletines(Listado):
         boletines = []
         array = []
         regex = re.compile(r"[0-9]")
-
         for i in sesiones:
             Url_Boletin = "http://opendata.camara.cl/wscamaradiputados.asmx/getSesionBoletinXML?prmSesionID=" + str(_id)
             r = requests.get(Url_Boletin)
@@ -34,4 +33,5 @@ class Boletines(Listado):
         aset = set(array)
         for j in aset:
             boletines.append(cls.toObject(str(j)))
+            print j
         return boletines

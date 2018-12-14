@@ -1,6 +1,3 @@
-from bs4 import BeautifulSoup as BS
-import requests
-
 
 class Legislatura(object):
     def __init__(self, _id, numero, fecha_inicio, fecha_termino):

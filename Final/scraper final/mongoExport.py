@@ -32,12 +32,12 @@ for l in Legislaturas.getLegislaturas():
                                            "votaciones": votacionesDict}
             boletinesDict[str(b._id)] = {"proyectos": proyectosDict}
         sesionesDict[str(s._id)] = {"tipo": str(s.tipo),
-                                    #"Fecha": str(s.Fecha),
+                                    "Fecha": str(s.fecha),
                                     "estado": str(s.estado),
                                     "boletines": boletinesDict}
     legislaturasDict[str(l._id)] = {"numero": str(l.numero),
-                                    #"FechaInicio": str(l.FechaInicio),
-                                    #"FechaTermino": str(l.FechaTermino),
+                                    "FechaInicio": str(l.fecha_inicio),
+                                    "FechaTermino": str(l.fecha_termino),
                                     "sesiones": sesionesDict}
 
 #Solo para revision de datos se exporta a un json

@@ -17,6 +17,7 @@ class Sesiones(Listado):
         for i in sesi:
             _id = i.ID.text.encode('utf-8')
             Fecha = i.Fecha.text.encode('utf-8')
+            Fecha = Fecha.split("T")[0]
             tipo = i.Tipo.text.encode('utf-8')
             estado = i.Estado.text.encode('utf-8')
             sesiones.append(cls.toObject(_id, Fecha, tipo, estado))

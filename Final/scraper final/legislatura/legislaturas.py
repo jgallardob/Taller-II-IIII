@@ -18,6 +18,8 @@ class Legislaturas(Listado):
             _id = i.ID.text.encode('utf-8')
             numero = i.Numero.text.encode('utf-8')
             FechaInicio = i.FechaInicio.text.encode('utf-8')
+            FechaInicio = FechaInicio.split("T")[0]
             FechaTermino = i.FechaTermino.text.encode('utf-8')
+            FechaTermino = FechaTermino.split("T")[0]
             legislaturas.append(cls.toObject(_id, numero, FechaInicio, FechaTermino))
         return legislaturas
