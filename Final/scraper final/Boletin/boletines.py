@@ -11,18 +11,16 @@ import re
 
 
 class Boletines(Listado):
+    proyectos = {}
     @classmethod
-    def getBoletines(cls):
+    def getBoletines(cls, _id):
         sesiones = []
         boletines = []
         array = []
         regex = re.compile(r"[0-9]")
 
-        for s in Sesiones.get_Sesiones():
-            sesiones.append(s._id)
-
         for i in sesiones:
-            Url_Boletin = "http://opendata.camara.cl/wscamaradiputados.asmx/getSesionBoletinXML?prmSesionID=" + str(i)
+            Url_Boletin = "http://opendata.camara.cl/wscamaradiputados.asmx/getSesionBoletinXML?prmSesionID=" + str(_id)
             r = requests.get(Url_Boletin)
             data = r.text
             soup = BS(data, 'xml')

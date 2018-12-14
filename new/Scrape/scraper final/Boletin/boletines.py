@@ -18,7 +18,7 @@ class Boletines(Listado):
         array = []
         regex = re.compile(r"[0-9]")
 
-        for s in Sesiones.get_Sesiones():
+        for s in Sesiones.getSesiones():
             sesiones.append(s._id)
 
         for i in sesiones:

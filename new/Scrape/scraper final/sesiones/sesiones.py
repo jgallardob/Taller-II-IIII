@@ -4,7 +4,7 @@ sys.path.insert(0, os.path.realpath('../'))
 from bs4 import BeautifulSoup as BS
 import requests
 from listado import Listado
-from legislatura.legislaturas import Legislatura
+from legislatura.legislaturas import Legislaturas
 
 
 class Sesiones(Listado):
@@ -12,7 +12,7 @@ class Sesiones(Listado):
     def getSesiones(cls):
         legislaturas = []
 
-        legislaturas.append(Legislatura.get_Legislaturas()[-1]._id)  # Ultima legislatura(50)(con un for obetenemos todas)
+        legislaturas.append(Legislaturas.getLegislaturas()[-1]._id)  # Ultima legislatura(50)(con un for obetenemos todas)
 
         for i in legislaturas:
             sesiones = []
