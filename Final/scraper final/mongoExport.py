@@ -15,7 +15,7 @@ db = client.integracion
 
 legislaturasDict = {}
 for l in Legislaturas.getLegislaturas():
-    print "pase"
+    print l._id
     sesionesDict = {}
     for s in Sesiones.getSesiones(l._id):
         boletinesDict = {}
