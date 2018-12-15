@@ -27,9 +27,9 @@ for l in Legislaturas.getLegislaturas():
                     votacionesDict[str(v.Id)] = {"Id_Diputado": str(v.Id_Diputado),
                                                  "voto": str(v.voto)}
                 proyectosDict[str(p._id)] = {"nombre": str(p.nombre),
-                                           "id_votacion": str(p.id_votacion),
-                                           "materia": str(p.materia),
-                                           "votaciones": votacionesDict}
+                                             "id_votacion": str(p.id_votacion),
+                                             "materia": str(p.materia),
+                                             "votaciones": votacionesDict}
             boletinesDict[str(b._id)] = {"proyectos": proyectosDict}
         sesionesDict[str(s._id)] = {"tipo": str(s.tipo),
                                     "Fecha": str(s.fecha),
@@ -40,10 +40,12 @@ for l in Legislaturas.getLegislaturas():
                                     "FechaTermino": str(l.fecha_termino),
                                     "sesiones": sesionesDict}
 
-#Solo para revision de datos se exporta a un json
-json = json.dumps(legislaturasDict)
-f = open("legislaturas.json", "w")
-f.write(json)
-f.close()
+db.unica.insert(legislaturasDict)
 
-#client.close()
+# Solo para revision de datos se exporta a un json
+# json = json.dumps(legislaturasDict)
+# f = open("legislaturas.json", "w")
+# f.write(json)
+# f.close()
+
+# client.close()
