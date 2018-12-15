@@ -11,6 +11,7 @@ class Votaciones(Listado):
     def getVotaciones(cls, _id):
         aId_Diputados = []
         aVotos = []
+        idVotos = []
         vot = []
 
         Url_VotaDetalle = "http://opendata.camara.cl/camaradiputados/WServices/WSLegislativo.asmx/retornarVotacionDetalle?prmVotacionId=" + str(_id)
@@ -26,9 +27,10 @@ class Votaciones(Listado):
                 aVotos.append("1")
             if i.OpcionVoto["Valor"] == "2":
                 aVotos.append("7")
+            idVotos.append(i.Id)
 
-        Id = str(_id)
         for i in range(0, len(aVotos)):
+            Id = str(idVotos[i])
             Id_Diputado = str(aId_Diputados[i])
             voto = str(aVotos[i])
             vot.append(cls.toObject(Id, Id_Diputado, voto))
