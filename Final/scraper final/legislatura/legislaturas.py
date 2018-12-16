@@ -6,10 +6,12 @@ from listado import Listado
 
 class Legislaturas(Listado):
     sesiones = {}
+
     @classmethod
     def getLegislaturas(cls):
         legislaturas = []
-        Url_legislaturas = "http://opendata.camara.cl/wscamaradiputados.asmx/getLegislaturas"
+        #Url_legislaturas = "http://opendata.camara.cl/wscamaradiputados.asmx/getLegislaturas" # para todas la legis
+        Url_legislaturas = "http://opendata.camara.cl/wscamaradiputados.asmx/getLegislaturaActual" # ultima legis
         r = requests.get(Url_legislaturas)
         data = r.text
         soup = BS(data, 'xml')

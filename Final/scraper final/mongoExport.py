@@ -40,7 +40,8 @@ for l in Legislaturas.getLegislaturas():
                                     "FechaTermino": str(l.fecha_termino),
                                     "sesiones": sesionesDict}
 
-db.unica.insert(legislaturasDict)
+# db.unica.insert(legislaturasDict)
+db.LegislaturaActual.insert(legislaturasDict)
 
 # Solo para revision de datos se exporta a un json
 # json = json.dumps(legislaturasDict)
