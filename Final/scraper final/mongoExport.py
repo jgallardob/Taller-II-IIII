@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Extraccion de datos en forma de objetos para facilitar la insercion a MongoDB
 import pymongo
-import json
+#import json
 from pymongo import MongoClient
 from Votacion.votaciones import Votaciones
 from Proyecto.proyectos import Proyectos
@@ -16,37 +16,42 @@ db = client.integracion
 legislaturasDict = {}
 for l in Legislaturas.getLegislaturas():
     print l._id
-    sesionesDict = {}
+    aSesiones = []
     for s in Sesiones.getSesiones(l._id):
-        boletinesDict = {}
+        aBoletines = []
         for b in Boletines.getBoletines(s._id):
-            proyectosDict = {}
+            aProyectos = []
             for p in Proyectos.getProyectos(b._id):
-                votacionesDict = {}
+                aVotaciones = []
                 for v in Votaciones.getVotaciones(p.id_votacion):
-                    votacionesDict[str(v.Id)] = {"Id_Diputado": str(v.Id_Diputado),
-                                                 "voto": str(v.voto)}
-                proyectosDict[str(p._id)] = {"nombre": str(p.nombre),
-                                             "id_votacion": str(p.id_votacion),
-                                             "materia": str(p.materia),
-                                             "votaciones": votacionesDict}
-            boletinesDict[str(b._id)] = {"proyectos": proyectosDict}
-        sesionesDict[str(s._id)] = {"tipo": str(s.tipo),
-                                    "Fecha": str(s.fecha),
-                                    "estado": str(s.estado),
-                                    "boletines": boletinesDict}
+                    aVotaciones.append({"_id": str(v.Id),
+                                        "Id_Diputado": str(v.Id_Diputado),
+                                        "voto": str(v.voto)})
+                aProyectos.append({"_id": str(p._id),
+                                   "nombre": str(p.nombre),
+                                   "id_votacion": str(p.id_votacion),
+                                   "materia": str(p.materia),
+                                   "votaciones": aVotaciones})
+            aBoletines.append({"_id": str(b._id),
+                               "proyectos": aProyectos})
+        aSesiones.append({"_id": str(s._id),
+                          "tipo": str(s.tipo),
+                          "Fecha": str(s.fecha),
+                          "estado": str(s.estado),
+                          "boletines": aBoletines})
     legislaturasDict[str(l._id)] = {"numero": str(l.numero),
                                     "FechaInicio": str(l.fecha_inicio),
                                     "FechaTermino": str(l.fecha_termino),
-                                    "sesiones": sesionesDict}
+                                    "sesiones": aSesiones}
+    db.LegislaturaActual.insert(legislaturasDict)
 
 # db.unica.insert(legislaturasDict)
-db.LegislaturaActual.insert(legislaturasDict)
+#db.LegislaturaActual.insert(legislaturasDict)
 
 # Solo para revision de datos se exporta a un json
-# json = json.dumps(legislaturasDict)
-# f = open("legislaturas.json", "w")
-# f.write(json)
-# f.close()
+#json = json.dumps(legislaturasDict)
+#f = open("legislaturas.json", "w")
+#f.write(json)
+#f.close()
 
-# client.close()
+client.close()
