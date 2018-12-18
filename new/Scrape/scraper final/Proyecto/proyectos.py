@@ -14,7 +14,7 @@ class Proyectos(Listado):
         boletines = []
         proyectos = []
 
-        for b in Boletin.get_Boletines():
+        for b in Boletines.getBoletines():
             boletines.append(b._id)
 
         for i in boletines:

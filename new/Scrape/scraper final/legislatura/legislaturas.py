@@ -6,7 +6,7 @@ from listado import Listado
 
 class Legislaturas(Listado):
     @classmethod
-    def get_Legislaturas(cls):
+    def getLegislaturas(cls):
         legislaturas = []
         Url_legislaturas = "http://opendata.camara.cl/wscamaradiputados.asmx/getLegislaturas"
         r = requests.get(Url_legislaturas)

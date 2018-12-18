@@ -12,7 +12,7 @@ class Votaciones(Listado):
     @classmethod
     def getVotaciones(cls):
         votaciones = []
-        for p in Proyecto.get_Proyectos():
+        for p in Proyectos.getProyectos():
             votaciones.append(p.id_votacion)
 
         aId_Diputados = []

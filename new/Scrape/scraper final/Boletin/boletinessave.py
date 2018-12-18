@@ -1,8 +1,6 @@
 # -*- coding: utf-8 -*-
 # Extraccion de datos en forma de objetos para facilitar la insercion a MongoDB
-import pymongo
 from pymongo import MongoClient
-from pprint import pprint
 from boletines import Boletines
 
 client = MongoClient('localhost', 27017)

@@ -3,7 +3,7 @@ from objProyecto import Proyecto
 
 
 class Listado(object):
-	@classmethod
+    @classmethod
     def getProyectos(cls):
         raise NotImplementedError('Se debe de implementar dentro de'
                                   'la subclase')
